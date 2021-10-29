@@ -1,0 +1,20 @@
+﻿
+<h1>Aggiungi nuovo piatto</h1>
+
+<div class="row">
+    <div class="col-3"></div>
+    <form class="col-lg-6 col-md-6 col-sm-12" asp-controller="Dish" asp-action="Create" method="post">
+
+        
+
+        <partial name="_Form" model="Model" />
+
+        <div class="form-group">
+            <input type="submit" value="Aggiungi" class="btn btn-primary" />
+        </div>
+    </form>
+
+    <div>
+        <a asp-controller="Menu" asp-action="Index">Indietro</a>
+    </div>
+</div>

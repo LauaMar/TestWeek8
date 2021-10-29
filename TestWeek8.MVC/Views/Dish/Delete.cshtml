@@ -1,0 +1,20 @@
+﻿@model DishViewModel
+
+<h1>Elimina un piatto</h1>
+
+
+<div style="width: 30rem;">
+    <h3>Conferma la eliminazione del piatto</h3>
+    <h5>Sei sicuro di voler cancellare il piatto @Model.Name ? </h5>
+    <div class="row">
+        <div class="col-md-10">
+            <form href="#" asp-action="Delete">
+                <input value="Si" type="submit" class="btn btn-danger" />
+                <input asp-for="Id" hidden />
+            </form>
+        </div>
+        <div class="col-md-1">
+            <a type="button" asp-controller="Menu" asp-action="Details" asp-route-id="@Model.MenuId" class="btn btn-primary">No</a>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,19 @@
+﻿@model UserViewModel
+
+<form method="post">
+    <div asp-validation-summary="ModelOnly"></div>
+    <input type="hidden" asp-for="ReturnUrl" />
+
+    <label asp-for="Email"></label>
+    <input asp-for="Email" />
+    <span asp-validation-for="Email"></span>
+
+    <label asp-for="Password"></label>
+    <input asp-for="Password" />
+    <span asp-validation-for="Password"></span>
+
+    <br />
+
+    <input type="submit" value="Login" class="btn btn-primary" />
+
+</form>

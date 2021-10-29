@@ -1,0 +1,43 @@
+﻿@model MenuViewModel
+
+<h1>Menù @Model.Name</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">Nome</th>
+            <th scope="col">Typologia</th>
+            <th scope="col">Prezzo</th>
+            @if (User.IsInRole("Ristoratore"))
+            {
+                <th scope="col"> </th>
+            }
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (DishViewModel piatto in Model.Dishes)
+        {
+            <tr>
+                <td>
+                    <label><strong>@piatto.Name</strong></label>
+                    <p>@piatto.Description</p>
+                </td>
+                <td>@piatto.Type</td>
+                <td>@piatto.Price</td>
+                @if (User.IsInRole("Ristoratore"))
+                {
+                    <td>
+
+                        <a type="button" value="Edit" asp-controller="Dish" asp-action="Edit" asp-route-id="@piatto.Id" class="btn btn-success"><i class="fa fa-edit"></i></a>
+                        <a type="button" asp-controller="Dish" asp-action="Delete" asp-route-id="@piatto.Id" class="btn btn-danger"><i class="fa fa-trash"></i></a>
+                    </td>
+                }
+            </tr>
+        }
+
+    </tbody>
+</table>
+@if (User.IsInRole("Ristoratore"))
+{
+<a type="button" asp-controller="Dish" asp-action="Create" class="btn btn-Primary"><i class="fa fa-plus"> Aggiungi nuovo piatto</i></a>
+}
